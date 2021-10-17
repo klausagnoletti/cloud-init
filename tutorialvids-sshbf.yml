@@ -1,0 +1,11 @@
+#cloud-init
+users:
+  - name: klaus
+  sudo: ['ALL=(ALL) NOPASSWD:ALL']
+  groups: sudo
+  shell: /bin/bash
+  passwd: 
+
+runcmd:
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config #we want ssh to accept passwd so we can bruteforce it for testing crowdsec
+  - restart ssh
