@@ -1,4 +1,4 @@
-#cloud-init
+#cloud-config
 #update all packages
 package_upgrade: true
 
