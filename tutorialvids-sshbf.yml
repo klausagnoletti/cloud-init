@@ -1,4 +1,8 @@
 #cloud-init
+#update all packages
+package_upgrade: true
+
+#set up users
 users:
   - name: klaus
   sudo: ['ALL=(ALL) NOPASSWD:ALL']
@@ -6,6 +10,8 @@ users:
   shell: /bin/bash
   passwd: $6$zCn6OiUZPvRwVFk0$KiYocLD7.glmCJ6Fz24EhPjDC8fRRMzHeE0pxDCI2nL7Ip2MqhegpO0zpYE46F9jfO0HbBBm1ywnH1ti3iLKE/:18410:0:99999:7:::
 
+#edit sshd_config and restart sshd
 runcmd:
-  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config #we want ssh to accept passwd so we can bruteforce it for testing crowdsec
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config #Make sure ssh root login is disabled
+  - sed -i -e '/^PasswordAuthentication/s/^.*$/PasswordAuthentication yes/' /etc/ssh/sshd_config #we want ssh to accept passwd so we can bruteforce it for testing crowdsec
   - restart ssh
