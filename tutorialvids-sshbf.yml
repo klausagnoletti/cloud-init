@@ -5,6 +5,8 @@ package_upgrade: true
 #set up users
 users:
   - name: klaus
+  ssh-authorized-keys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1QYZfvmPFlaxFVaOeSsGo4RgK+Yl7coaC8pb9xk/Vk klaus@macairlet.agnoletti.net
   sudo: ['ALL=(ALL) NOPASSWD:ALL']
   groups: sudo
   shell: /bin/bash
