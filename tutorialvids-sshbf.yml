@@ -4,7 +4,7 @@ users:
   sudo: ['ALL=(ALL) NOPASSWD:ALL']
   groups: sudo
   shell: /bin/bash
-  passwd: 
+  passwd: $6$zCn6OiUZPvRwVFk0$KiYocLD7.glmCJ6Fz24EhPjDC8fRRMzHeE0pxDCI2nL7Ip2MqhegpO0zpYE46F9jfO0HbBBm1ywnH1ti3iLKE/:18410:0:99999:7:::
 
 runcmd:
   - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config #we want ssh to accept passwd so we can bruteforce it for testing crowdsec
