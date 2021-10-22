@@ -1,4 +1,6 @@
 #cloud-config
+#set hostname
+fqdn: wordpress
 #update all packages
 package_upgrade: true
 

@@ -1,4 +1,6 @@
 #cloud-config
+#set hostname
+fqdn: defender
 #update all packages
 package_upgrade: true
 
