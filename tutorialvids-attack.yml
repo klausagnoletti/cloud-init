@@ -17,5 +17,10 @@ users:
 runcmd:
   - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config #Make sure ssh root login is disabled
   - sed -i -e '/^PasswordAuthentication/s/^.*$/PasswordAuthentication yes/' /etc/ssh/sshd_config #we want ssh to accept passwd so we can bruteforce it for testing crowdsec
-  - sed -i -e '/^PermitEmptyPasswords/s/^.*$/PermitEmptyPasswords no' /etc/ssh/sshd_config #wants to make sure that login with empty passwords is not possiible
+  - sed -i -e '/^PermitEmptyPasswords/s/^.*$/PermitEmptyPasswords no/' /etc/ssh/sshd_config #wants to make sure that login with empty passwords is not possiible
   - restart ssh
+
+  #install attack-packages
+packages:
+  - hydra
+  - nmap
