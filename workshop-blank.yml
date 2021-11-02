@@ -6,6 +6,7 @@ package_upgrade: true
 
 packages: 
   - python3-pip #gdown needs pip
+  - hydra #so we can brute force
 
 #set up users
 users:
