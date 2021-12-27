@@ -25,6 +25,6 @@ runcmd:
   - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config #Make sure ssh root login is disabled
   - service ssh restart
   - pip3 install gdown #we need gdown to download a file from Google Drive to vps. Usage: gdown --id {gdrive_file_id} --output {file_name}
-  - gdown --id 18tfTKW_NGcGqhxB8YQjOgc3Jft03o3Mx --output /home/klaus/auth.log #download auth.log file for simulation
+  - gdown --fuzzy 'https://drive.google.com/file/d/18tfTKW_NGcGqhxB8YQjOgc3Jft03o3Mx/view?usp=sharing' --output /home/klaus/auth.log #download auth.log file for simulation
 
 
