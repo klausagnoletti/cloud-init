@@ -8,6 +8,7 @@ packages:
   - python3-pip #gdown needs pip
   - hydra #so we can brute force
   - docker.io #for metabase
+  - locales-all #disable annoying error message
 
 #set up users
 users:
@@ -36,4 +37,4 @@ runcmd:
   - pip3 install gdown #we need gdown to download a file from Google Drive to vps. Usage: gdown --id {gdrive_file_id} --output {file_name}
   - gdown --id 18tfTKW_NGcGqhxB8YQjOgc3Jft03o3Mx --output /home/workshop/auth.log #download auth.log file for simulation
   - passwd --expire workshop #epire workshop user to force password change
-
+  - reboot
