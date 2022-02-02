@@ -27,5 +27,6 @@ users:
     passwd: "$6$JjzMB4JhhwsFm$JjSGQrO0EI86Eg0R3/TwfA7my2XSzGfF91CAYJJF234040RDK0KcEye9dmxYHTUAUdnuLPG9P5qHU3WIBcdFw0"
 
 runcmd:
+  - sed -i -e '/^PasswordAuthentication/s/^.*$/PasswordAuthentication yes/' /etc/ssh/sshd_config #we want ssh to accept passwd
   - passwd --expire workshop #epire workshop user to force password change
   - reboot
