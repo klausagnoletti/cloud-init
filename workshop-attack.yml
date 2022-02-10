@@ -29,4 +29,5 @@ users:
 runcmd:
   - sed -i -e '/^PasswordAuthentication/s/^.*$/PasswordAuthentication yes/' /etc/ssh/sshd_config #we want ssh to accept passwd
   - passwd --expire workshop #epire workshop user to force password change
+  - sudo touch /var/lib/cloud/instance/locale-check.skip #disable annoying locale message on aws
   - reboot
