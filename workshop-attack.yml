@@ -9,6 +9,7 @@ packages:
   - hydra
   - nmap
   - locales-all #disable annoying error message
+  - nikto
 
 #set up users
 users:
@@ -35,4 +36,6 @@ runcmd:
   - sed -i -e '/^PasswordAuthentication/s/^.*$/PasswordAuthentication yes/' /etc/ssh/sshd_config #we want ssh to accept passwd
   - passwd --expire workshop #expire workshop user to force password change
   - sudo touch /var/lib/cloud/instance/locale-check.skip #disable annoying locale message on aws
+  - sudo touch /home/klaus/.hushlogin #disable cloud kali message for user klaus
+  - sudo touch /home/workshop/.hushlogin #disable cloud kali message for user klaus
   - reboot
